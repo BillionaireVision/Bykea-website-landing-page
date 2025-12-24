@@ -1,0 +1,604 @@
+:root {
+  --gold: #d4af37;
+  --bg: #ffffff;
+  font-family: Inter, Arial, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 60px;
+  background: #fff;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+  object-fit: contain;
+  margin-left: 100px;
+}
+
+/* ================= NAV LINKS ================= */
+
+.nav-links {
+  display: flex;
+  gap: 26px;
+  align-items: center;
+  margin-right: 80px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ================= DROPDOWN ================= */
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 8px 0;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  display: none;
+  z-index: 99;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 18px;
+  font-size: 14px;
+  color: #33d602;
+  white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+  background: #f3f4f6;
+}
+
+/* SHOW DROPDOWN */
+.dropdown:hover > .dropdown-menu {
+  display: block;
+}
+
+/* ================= SUB DROPDOWN ================= */
+
+.sub-dropdown {
+  position: relative;
+}
+
+.sub-dropdown .dropdown-menu.right {
+  top: 0;
+  left: 100%;
+}
+
+.sub-dropdown:hover > .dropdown-menu {
+  display: block;
+}
+
+/* ================= BUTTON (ONLY ANIMATION HERE) ================= */
+
+.nav-btn {
+  padding: 12px 28px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #3cd437, #69ff55);
+  color: #0e0e0e;
+  font-weight: 700;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: 0.4s ease;
+  box-shadow: 0 0 15px rgba(60, 212, 55, 0.4);
+}
+
+/* glow animation */
+.nav-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  transition: 0.6s;
+}
+
+.nav-btn:hover::before {
+  left: 100%;
+}
+
+.nav-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.808);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 800px) {
+  .navbar {
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .logo {
+    width: 80px;
+  }
+}
+
+
+
+/* Bykea Section */
+.bykea-section {
+  padding: 80px 70px;
+  background: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.bykea-header h2 {
+  font-size: 38px;
+  font-weight: 800;
+  color: #00a651;
+  margin-bottom: 14px;
+}
+
+.bykea-header p {
+  max-width: 720px;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.7;
+}
+
+/* Tabs */
+.bykea-tabs {
+  display: flex;
+  gap: 30px;
+  margin: 50px 0 25px;
+}
+
+.bykea-tabs .tab {
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  padding-bottom: 8px;
+  color: #111;
+  position: relative;
+}
+
+.bykea-tabs .tab.active {
+  color: #00a651;
+}
+
+.bykea-tabs .tab.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: #00a651;
+  border-radius: 10px;
+}
+
+/* Card */
+.bykea-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border-radius: 20px;
+  padding: 50px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* Left */
+.bykea-left {
+  width: 45%;
+}
+
+.bykea-left h3 {
+  font-size: 36px;
+  color: #00a651;
+  margin-bottom: 20px;
+}
+
+.bykea-left p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #333;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 18px;
+  color: #00a651;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Right */
+.bykea-right {
+  width: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.bykea-right img {
+  width: 100%;
+  max-width: 520px;
+  position: relative;
+  z-index: 2;
+}
+*/
+
+/* Responsive */
+@media (max-width: 992px) {
+  .bykea-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .bykea-left,
+  .bykea-right {
+    width: 100%;
+  }
+
+  .yellow-bg {
+    width: 90%;
+  }
+}
+
+
+
+/* Why Bykea Section */.why-bykea {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 100px 80px;
+  background: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* LEFT IMAGE */
+.bykea-mockup {
+  width: 45%;
+  display: flex;
+  justify-content: center;
+}
+
+.bykea-mockup img {
+  width: 560px;
+  transform: rotate(-7deg);
+ 
+  border-radius: 30px;
+}
+
+/* RIGHT CONTENT */
+.bykea-content {
+  width: 45%;
+}
+
+.small-title {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #777;
+}
+
+.bykea-content h2 {
+  font-size: 28px;
+  margin: 22px 0 10px;
+  color: #111;
+}
+
+.bykea-content p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #444;
+  max-width: 520px;
+}
+
+/* STORE BUTTONS */
+.store-buttons {
+  display: flex;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.store-buttons img {
+  height: 44px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.store-buttons img:hover {
+  transform: translateY(-3px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .why-bykea {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .bykea-mockup,
+  .bykea-content {
+    width: 100%;
+  }
+
+  .bykea-mockup img {
+    transform: rotate(0);
+    margin-bottom: 40px;
+  }
+}
+
+
+.d-block {
+  width: 100%;
+  height: auto;
+}
+
+
+
+.card {
+ margin: 80px;
+  border-radius: 30px;
+}
+
+.card img {
+  width: 100%;}
+
+  .card h5 {
+    color: #000000;
+    font-size: 32px;
+    margin-bottom: 14px;
+  }
+
+
+  /* card-link */
+  .card-link {
+    margin-top: 20px;
+    margin-left: 30px;
+  }
+
+  .card-link a {
+    color: #00a651;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+
+
+
+  /* About Bykea Section */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inter, Arial, sans-serif;
+}
+
+/* ABOUT SECTION */
+.about-bykea {
+    max-width: 1200px;
+    margin-top: 50px;
+    padding: 0 20px;
+}
+
+.about-bykea h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+/* IMAGE */
+.image-box {
+    width: 1550px;
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.image-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* TEXT */
+.about-bykea p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    max-width: 900px;
+    margin-bottom: 24px;
+}
+
+/* BUTTON */
+.bykea-btn {
+    background: #1f2a4a;
+    color: #ffffff;
+    border: none;
+    padding: 12px 22px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.bykea-btn:hover {
+    background: #16203a;
+}
+
+
+/* 2nd-card-section */
+.nd-card-section h5 {
+    color: #494747;
+    font-size: 22px;
+    margin-bottom: 14px;
+    margin-left: 50px;
+    margin-top: 80px;
+}
+
+.nd-card-section h2{
+    color: #000000;
+    font-size: 32px;
+    margin-bottom: 14px;
+    margin-left: 50px;
+}
+
+/* Footer */
+
+.bykea-footer {
+    background: #232a4a;
+    color: #ffffff;
+    padding: 60px 80px 30px;
+}
+
+/* TOP */
+.footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+}
+
+/* BRAND */
+.footer-brand h2 {
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.tagline {
+    margin: 8px 0 18px;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.contact {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.store-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.store-buttons img {
+    height: 40px;
+}
+
+/* COLUMNS */
+.footer-column h4 {
+    font-size: 16px;
+    margin-bottom: 14px;
+}
+
+.footer-column a {
+    display: block;
+    font-size: 14px;
+    color: #ffffff;
+    opacity: 0.85;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+.footer-column a:hover {
+    opacity: 1;
+}
+
+.mt {
+    margin-top: 30px;
+}
+
+/* BOTTOM */
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.2);
+    margin-top: 40px;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #fff;
+    opacity: 0.85;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+}
+
+.socials {
+    display: flex;
+    gap: 12px;
+}
+
+.socials span {
+    width: 28px;
+    height: 28px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    cursor: pointer;
+}
